@@ -10,6 +10,15 @@ class TasksController < ApplicationController
   def update
   end
 
+  def update_all
+    tasks = params[:tasks]
+    tasks.each do |task|
+      t = Task.find(task['id'])
+      t.order = task['order']
+      t.save
+    end
+  end
+
   def destroy
   end
 end
