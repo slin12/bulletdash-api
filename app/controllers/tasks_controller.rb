@@ -5,6 +5,8 @@ class TasksController < ApplicationController
   end
 
   def create
+    task = Task.create(content: params[:content], user_id: 1)
+    render json: task
   end
 
   def update
@@ -20,5 +22,9 @@ class TasksController < ApplicationController
   end
 
   def destroy
+    task = Task.find(params[:id])
+    task.destroy
+    tasks = Task.all
+    render json: tasks
   end
 end
