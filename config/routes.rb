@@ -4,5 +4,9 @@ Rails.application.routes.draw do
   resources :tasks
   resources :trackers
 
+  post '/users', to: 'users#create'
+  get '/users', to: 'users#show'
+
   patch '/tasks', to: 'tasks#update_all'
+  post '/auth', to: 'auth#create'
 end

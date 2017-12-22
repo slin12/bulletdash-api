@@ -1,13 +1,13 @@
 class UsersController < ApplicationController
-  def index
-  end
+  skip_before_action :authorized
 
   def create
+    user = User.create(username: params['usernameValue'], password: params['passwordValue'], name: params['firstNameValue'])
+    render json: user
   end
 
-  def update
+  def show
+    render json: current_user
   end
 
-  def destroy
-  end
 end
