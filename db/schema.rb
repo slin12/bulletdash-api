@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171222161825) do
+ActiveRecord::Schema.define(version: 20171228190345) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,11 +31,11 @@ ActiveRecord::Schema.define(version: 20171222161825) do
   end
 
   create_table "trackers", force: :cascade do |t|
-    t.string "title"
-    t.integer "data", default: [0], array: true
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "steps"
+    t.date "date_format"
   end
 
   create_table "users", force: :cascade do |t|

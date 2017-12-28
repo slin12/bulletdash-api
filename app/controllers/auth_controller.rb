@@ -1,10 +1,11 @@
 class AuthController < ApplicationController
-  skip_before_action :authorized, only: [:create]
+  skip_before_action :authorized
 
   def show
     render json: {
       id: current_user.id,
-      username: current_user.username
+      username: current_user.username,
+      name: current_user.name
     }
   end
 
