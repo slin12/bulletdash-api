@@ -16,4 +16,10 @@ class UsersController < ApplicationController
     render json: current_user
   end
 
+  def theme
+    prev_theme = current_user.theme
+    prev_theme == 'colorful' ? current_user.update(theme: 'modern') : current_user.update(theme: 'colorful')
+    render json: current_user
+  end
+
 end

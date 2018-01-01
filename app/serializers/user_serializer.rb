@@ -1,5 +1,5 @@
 class UserSerializer < ActiveModel::Serializer
-  attributes :name
+  attributes :name, :theme
   has_many :tasks
   has_many :notes
 end

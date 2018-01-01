@@ -6,10 +6,12 @@ Rails.application.routes.draw do
 
   post '/users', to: 'users#create'
   get '/users', to: 'users#show'
+  get '/users/theme', to: 'users#theme'
 
   patch '/notes', to: 'notes#update'
 
   patch '/tasks', to: 'tasks#update_all'
   post '/auth', to: 'auth#create'
   get '/current_user', to: 'auth#show'
+
 end
