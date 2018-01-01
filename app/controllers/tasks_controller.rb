@@ -24,7 +24,7 @@ class TasksController < ApplicationController
   def destroy
     task = Task.find(params[:id])
     task.destroy
-    tasks = Task.all
+    tasks = Task.all.select {|task| task.user == current_user}
     render json: tasks
   end
 end

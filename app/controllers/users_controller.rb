@@ -3,7 +3,13 @@ class UsersController < ApplicationController
 
   def create
     user = User.create(username: params['usernameValue'], password: params['passwordValue'], name: params['firstNameValue'])
-    render json: user
+    if user.valid?
+      payload = {user_id: user.id}
+      token = issue_token(payload)
+      render json: { id: user.id, username: user.username, jwt: token}
+    else
+      render json: { error: "some bad stuff happened"}
+    end
   end
 
   def show
