@@ -8,7 +8,7 @@ class NotesController < ApplicationController
   end
 
   def update
-    note = Note.find {|note| note.user === current_user}
+    note = Note.find {|note| note.user === current_user} || Note.create(user: current_user)
     note.content = params['note']['content']
     note.save
   end
