@@ -9,7 +9,7 @@ class NotesController < ApplicationController
 
   def update
     note = Note.find {|note| note.user === current_user}
-    note.update(content: params['note']['content'])
+    note.content = params['note']['content'])
     note.save
   end
 
